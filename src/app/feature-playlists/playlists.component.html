@@ -1,0 +1,25 @@
+<section class="page-intro">
+  <div class="container">
+    <h1>Playlists</h1>
+    <p>
+      Hier vind je een overzicht van al je beschikbare playlists.<br />
+      Je kunt ook playlists verwijderen.
+    </p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h3>Alle beschikbare playlists</h3>
+
+    @if (playlistsStore.entities().length) {
+    <sr-list>
+      @for (playlist of playlistsStore.entities(); track playlist.id) {
+      <sr-list-item [label]="playlist.name" [routerLink]="['/playlists', playlist.id]" />
+      }
+    </sr-list>
+    } @else {
+    <sr-alert message="Geen playlists gevonden" severity="info" />
+    }
+  </div>
+</section>
