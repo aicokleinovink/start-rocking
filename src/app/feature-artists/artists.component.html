@@ -1,0 +1,30 @@
+<section class="page-intro">
+  <div class="container">
+    <h1>Artiesten</h1>
+    <p>
+      Hier vind je een overzicht van alle artiesten.<br />
+      Klik op een artiest om een lijst van hun songs te zien, of zoek naar je favoriete artiest.
+    </p>
+  </div>
+</section>
+
+@if (artistsResource.value()) {
+<section class="page-content">
+  <div class="container">
+    <h3>Vind je favoriete artiest</h3>
+    <sr-input placeholder="Zoek artiest" (valueChange)="searchValue.set($event)" />
+
+    @if (filteredArtists().length) {
+    <sr-list>
+      @for (artist of filteredArtists(); track artist.id) {
+      <sr-list-item [label]="artist.name" [routerLink]="['/artiesten', artist.name]" />
+      }
+    </sr-list>
+    } @else {
+    <sr-alert message="Geen artiesten gevonden" severity="info" />
+    }
+  </div>
+</section>
+} @if (artistsResource.error()) {
+<sr-alert message="Er ging iets fout tijdens het ophalen van de artiesten" severity="error" />
+}

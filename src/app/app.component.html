@@ -1,2 +1,7 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<header class="header">
+  <sr-topbar [appTitle]="appTitle" [navItems]="navItems" />
+</header>
+
+<main>
+  <router-outlet />
+</main>

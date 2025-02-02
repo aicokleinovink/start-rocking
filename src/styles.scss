@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/variables';
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-black);
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--color-white);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 1024px;
+  margin: auto;
+
+  @media only screen and (max-width: 1024px) {
+    padding: 0 var(--s2);
+    width: 100%;
+  }
+}
+
+section {
+  &.page-intro {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    padding: 7rem 0 4rem;
+
+    h1 {
+      color: var(--color-white);
+    }
+
+    p {
+      color: var(--color-light-gray);
+    }
+  }
+
+  &.page-content {
+    padding: 4rem 0;
+  }
+}

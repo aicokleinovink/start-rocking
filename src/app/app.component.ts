@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { NavItem, TopbarComponent } from './shared/components';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
+  selector: 'sr-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  imports: [RouterModule, TopbarComponent],
 })
 export class AppComponent {
-  title = 'start-rocking';
+  protected readonly appTitle = 'Start Rocking!';
+  protected readonly navItems: NavItem[] = [
+    { label: 'Artiesten', routerlink: '/artiesten' },
+    { label: 'Playlists', routerlink: '/playlists' },
+  ];
 }
