@@ -1,1 +1,28 @@
-Playlist
+<section class="page-intro">
+  <div class="container">
+    <h1>{{ playlist()?.name ?? 'Playlist' }}</h1>
+    <p>
+      Hier vind je een overzicht van alle nummers uit deze playlist.<br />
+      Kies een nummer om deze te verwijderen.
+    </p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    @if (playlist(); as playlist) {
+    <h3>Alle nummers uit je playlist</h3>
+
+    @if (playlist.songs.length) {
+    <sr-list>
+      @for (song of playlist.songs; track song.id) {
+      <sr-list-item [label]="song.name + ' - ' + song.artist" (select)="deleteFromPlaylist(playlist, song)" />
+      }
+    </sr-list>
+    } @else {
+    <sr-alert message="Deze playlist heeft nog geen nummers" severity="info" />
+    } } @else {
+    <sr-alert message="Deze playlist bestaat niet" severity="info" />
+    }
+  </div>
+</section>

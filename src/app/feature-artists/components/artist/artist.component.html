@@ -1,1 +1,36 @@
-Artiest
+<section class="page-intro">
+  <div class="container">
+    <h1>{{ artistName() }}</h1>
+    <p>
+      Hier vind je een overzicht van alle nummers van deze artiest.<br />
+      Kies een nummer om deze aan een playlist toe te voegen.
+    </p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    @if (songsResource.value(); as songs) {
+    <h3>Alle beschikbare nummers</h3>
+
+    @if (songs.length) {
+    <sr-list>
+      @for (song of songs; track song.id) {
+      <sr-list-item [label]="song.name" (select)="openPlaylistWidget(song)" />
+      }
+    </sr-list>
+    } @else {
+    <sr-alert message="Geen nummers gevonden" severity="info" />
+    } } @if (songsResource.error()) {
+    <sr-alert message="Er ging iets fout tijdens het ophalen van de nummers" severity="error" />
+    }
+  </div>
+</section>
+
+@if (state.playlistWidgetEnabled()) {
+<sr-playlist-widget
+  [playlists]="playlistsStore.entities()"
+  (newPlaylist)="addToNewPlaylist($event)"
+  (existingPlaylist)="addToExistingPlaylist($event)"
+/>
+}
