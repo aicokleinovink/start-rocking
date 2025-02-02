@@ -51,7 +51,7 @@ export class ArtistComponent {
   protected addToExistingPlaylist(playlist: Playlist): void {
     const song = this.state.selectedSong();
 
-    if (song) {
+    if (song && !playlist.songs.find(({ id }) => id === song.id)) {
       const updatedPlaylist: Playlist = {
         ...playlist,
         songs: [...playlist.songs, song],
