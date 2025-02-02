@@ -24,4 +24,13 @@
       flex-grow: 1;
     }
   }
+
+  &__playlists {
+    margin-bottom: var(--s2);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: flex-end;
+  }
 }

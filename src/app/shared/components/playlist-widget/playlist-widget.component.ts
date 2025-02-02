@@ -16,6 +16,7 @@ export class PlaylistWidgetComponent {
   public readonly playlists = input.required<Playlist[]>();
   public readonly newPlaylist = output<string>();
   public readonly existingPlaylist = output<Playlist>();
+  public readonly close = output<void>();
 
   protected readonly playlistForm = this.formBuilder.group({
     name: this.formBuilder.control('', { validators: Validators.required }),
@@ -27,5 +28,9 @@ export class PlaylistWidgetComponent {
 
   protected onExistingPlaylistSelect(playlist: Playlist): void {
     this.existingPlaylist.emit(playlist);
+  }
+
+  protected onCancel(): void {
+    this.close.emit();
   }
 }

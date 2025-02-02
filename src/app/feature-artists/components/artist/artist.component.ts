@@ -34,6 +34,10 @@ export class ArtistComponent {
     patchState(this.state, { playlistWidgetEnabled: true, selectedSong: song });
   }
 
+  protected closePlaylistWidget(): void {
+    patchState(this.state, { playlistWidgetEnabled: false, selectedSong: null });
+  }
+
   protected addToNewPlaylist(name: string): void {
     const song = this.state.selectedSong();
 
@@ -56,10 +60,6 @@ export class ArtistComponent {
     }
 
     this.closePlaylistWidget();
-  }
-
-  private closePlaylistWidget(): void {
-    patchState(this.state, { playlistWidgetEnabled: false, selectedSong: null });
   }
 
   private getSongsByArtist(artistName: string): Promise<Song[]> {

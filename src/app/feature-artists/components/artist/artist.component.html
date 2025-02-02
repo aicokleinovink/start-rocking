@@ -32,5 +32,6 @@
   [playlists]="playlistsStore.entities()"
   (newPlaylist)="addToNewPlaylist($event)"
   (existingPlaylist)="addToExistingPlaylist($event)"
+  (close)="closePlaylistWidget()"
 />
 }
