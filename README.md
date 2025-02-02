@@ -1,5 +1,13 @@
 # StartRocking
 
+## Install dependencies
+
+First install dependencies using:
+
+```sh
+npm install
+```
+
 ## Run tasks
 
 To run the dev server for your app, use:
