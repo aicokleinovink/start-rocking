@@ -1,0 +1,8 @@
+<input
+  #input
+  type="text"
+  class="input"
+  [class.input--has-value]="!!input.value"
+  [placeholder]="placeholder()"
+  (input)="valueChange.emit(input.value)"
+/>

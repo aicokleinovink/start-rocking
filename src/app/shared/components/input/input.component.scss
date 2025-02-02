@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  margin-bottom: var(--s3);
+}
+
+.input {
+  padding: 0.84rem;
+  width: 100%;
+  background: #f7f7f7;
+  border: none;
+  border-bottom: 2px solid var(--color-light-gray);
+  color: var(--color-light-gray);
+  font-size: var(--font-size-default);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus,
+  &--has-value {
+    border-bottom-color: #999;
+    color: var(--color-dark-gray);
+
+    &::placeholder {
+      color: var(--color-dark-gray);
+    }
+  }
+}

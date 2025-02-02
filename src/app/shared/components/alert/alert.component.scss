@@ -1,0 +1,13 @@
+.alert {
+  padding: 4rem 0;
+  text-align: center;
+  font-weight: bold;
+
+  &--info {
+    color: var(--color-light-gray);
+  }
+
+  &--error {
+    color: var(--color-error);
+  }
+}
