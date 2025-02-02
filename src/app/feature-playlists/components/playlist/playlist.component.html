@@ -16,7 +16,11 @@
     @if (playlist.songs.length) {
     <sr-list>
       @for (song of playlist.songs; track song.id) {
-      <sr-list-item [label]="song.name + ' - ' + song.artist" (select)="deleteFromPlaylist(playlist, song)" />
+      <sr-list-item
+        iconType="delete"
+        [label]="song.name + ' - ' + song.artist"
+        (select)="deleteFromPlaylist(playlist, song)"
+      />
       }
     </sr-list>
     } @else {

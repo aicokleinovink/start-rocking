@@ -16,7 +16,7 @@
     @if (songs.length) {
     <sr-list>
       @for (song of songs; track song.id) {
-      <sr-list-item [label]="song.name" (select)="openPlaylistWidget(song)" />
+      <sr-list-item iconType="add" [label]="song.name" (select)="openPlaylistWidget(song)" />
       }
     </sr-list>
     } @else {
