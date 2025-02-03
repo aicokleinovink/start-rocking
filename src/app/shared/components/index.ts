@@ -6,3 +6,4 @@ export * from './list/list.module';
 export * from './topbar/topbar.component';
 export * from './playlist-widget/playlist-widget.component';
 export * from './button/button.component';
+export * from './album/album.component';
