@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { PlaylistsStore } from '../../../shared/store';
 import { AlertComponent, ListModule } from '../../../shared/components';
 import { Playlist, Song } from '../../../shared/models';

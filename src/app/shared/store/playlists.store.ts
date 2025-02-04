@@ -4,7 +4,7 @@ import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStore, withHooks, withMethods } from '@ngrx/signals';
 import { addEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { map, pipe, switchMap } from 'rxjs';
+import { pipe, switchMap } from 'rxjs';
 import { apiBaseUrl } from '../constants';
 import { Playlist, Song } from '../models';
 
