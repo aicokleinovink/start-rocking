@@ -27,3 +27,12 @@ To create a production bundle:
 ```sh
 npx nx build start-rocking
 ```
+
+To run Playwright e2e tests (make sure JSON Server is running), use:
+
+```sh
+npx nx run e2e:e2e
+
+// or with UI
+npx nx run e2e:e2e --ui
+```
