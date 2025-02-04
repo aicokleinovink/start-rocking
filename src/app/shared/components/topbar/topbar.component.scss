@@ -17,12 +17,12 @@
   &__logo {
     display: flex;
     align-items: center;
-    font-size: var(--font-size-xl);
     font-weight: bold;
+    text-transform: uppercase;
 
     img {
       height: 5rem;
-      margin-right: var(--s1);
+      margin-right: var(--s2);
     }
   }
 
@@ -39,7 +39,8 @@
 
     li a {
       color: var(--color-white);
-      font-size: var(--font-size-xl);
+      text-transform: uppercase;
+      font-weight: bolder;
 
       &.active {
         color: var(--color-primary);
