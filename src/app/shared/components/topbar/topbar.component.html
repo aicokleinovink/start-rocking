@@ -1,14 +1,15 @@
 <div class="topbar container">
   <div class="topbar__logo">
+    <img src="RST-073-logo-Team-Rockstars-IT.png" alt="Team Rockstars logo" />
     <a routerLink="/">{{ appTitle() }}</a>
   </div>
 
   <nav class="topbar__nav">
     <ul>
       @for (item of navItems(); track $index) {
-        <li>
-          <a [routerLink]="item.routerlink" routerLinkActive="active">{{ item.label }}</a>
-        </li>
+      <li>
+        <a [routerLink]="item.routerlink" routerLinkActive="active">{{ item.label }}</a>
+      </li>
       }
     </ul>
   </nav>

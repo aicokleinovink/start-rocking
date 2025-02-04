@@ -15,8 +15,15 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
     font-size: var(--font-size-xl);
     font-weight: bold;
+
+    img {
+      height: 5rem;
+      margin-right: var(--s1);
+    }
   }
 
   &__nav ul {
