@@ -9,19 +9,13 @@ import { Playlist, Song } from '../../../shared/models';
   imports: [ListModule, AlertComponent],
 })
 export class PlaylistComponent {
-  private readonly playlistsStore = inject(PlaylistsStore);
   public readonly playlistId = input.required<string>();
-  protected readonly playlist = computed(() => this.getPlaylist());
+  protected readonly playlistsStore = inject(PlaylistsStore);
 
   protected deleteFromPlaylist(playlist: Playlist, song: Song): void {
-    const updatedPlaylist: Playlist = {
-      ...playlist,
-      songs: playlist.songs.filter((s) => s.id !== song.id),
-    };
-    this.playlistsStore.patch({ playlist: updatedPlaylist });
-  }
-
-  private getPlaylist(): Playlist | undefined {
-    return this.playlistsStore.entityMap()[this.playlistId()];
+    this.playlistsStore.patch({ playlist: { 
+      ...playlist, 
+      songs: playlist.songs.filter((s) => s.id !== song.id)} 
+    });
   }
 }

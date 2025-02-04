@@ -1,6 +1,8 @@
+@let playlist = playlistsStore.entityMap()[playlistId()];
+
 <section class="page-intro">
   <div class="container">
-    <h1>{{ playlist()?.name ?? 'Playlist' }}</h1>
+    <h1>{{ playlist?.name ?? 'Playlist' }}</h1>
     <p>
       Hier vind je een overzicht van alle nummers uit deze playlist.<br />
       Kies een nummer om deze te verwijderen.
@@ -10,7 +12,7 @@
 
 <section class="page-content">
   <div class="container">
-    @if (playlist(); as playlist) {
+    @if (playlist) {
       <h3>Alle nummers uit je playlist</h3>
 
       @if (playlist.songs.length) {
