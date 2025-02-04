@@ -27,13 +27,13 @@
   </div>
 </section>
 
-@if (albumsByArtist().length) {
+@if (albumsResource.value()?.length) {
 <section class="page-more-info">
   <div class="container">
     <h3>Komt voor in de volgende albums</h3>
 
     <div class="albums">
-      @for (album of albumsByArtist(); track album.name) {
+      @for (album of albumsResource.value(); track album.name) {
       <sr-album [album]="album" />
       }
     </div>
