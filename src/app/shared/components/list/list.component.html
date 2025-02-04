@@ -1,9 +1,9 @@
 <ul>
   @for (item of listItems(); track $index) {
-  <li>
-    <a class="item" [routerLink]="item.routerLink()" (click)="item.select.emit()">
-      {{ item.label() }} <fa-icon [icon]="item.icon()"></fa-icon>
-    </a>
-  </li>
+    <li>
+      <a class="item" [routerLink]="item.routerLink()" (click)="item.select.emit()">
+        {{ item.label() }} <fa-icon [icon]="item.icon()"></fa-icon>
+      </a>
+    </li>
   }
 </ul>

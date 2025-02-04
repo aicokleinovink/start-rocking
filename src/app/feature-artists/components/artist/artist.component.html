@@ -11,39 +11,44 @@
 <section class="page-content">
   <div class="container">
     @if (songsResource.value(); as songs) {
-    <h3>Alle beschikbare nummers</h3>
+      <h3>Alle beschikbare nummers</h3>
 
-    @if (songs.length) {
-    <sr-list>
-      @for (song of songs; track song.id) {
-      <sr-list-item iconType="add" [label]="song.name" (select)="openPlaylistWidget(song)" />
-      }
-    </sr-list>
-    } @else {
-    <sr-alert message="Geen nummers gevonden" severity="info" />
-    } } @if (songsResource.error()) {
-    <sr-alert message="Er ging iets fout tijdens het ophalen van de nummers" severity="error" />
+      @if (songs.length) {
+        <sr-list>
+          @for (song of songs; track song.id) {
+            <sr-list-item iconType="add" [label]="song.name" (select)="openPlaylistWidget(song)" />
+          }
+        </sr-list>
+      } @else {
+        <sr-alert message="Geen nummers gevonden" severity="info" />
+      } 
+    } 
+      
+    @if (songsResource.error()) {
+      <sr-alert message="Er ging iets fout tijdens het ophalen van de nummers" severity="error" />
     }
   </div>
 </section>
 
 @if (albumsResource.value()?.length) {
-<section class="page-more-info">
-  <div class="container">
-    <h3>Komt voor in de volgende albums</h3>
+  <section class="page-more-info">
+    <div class="container">
+      <h3>Komt voor in de volgende albums</h3>
 
-    <div class="albums">
-      @for (album of albumsResource.value(); track album.name) {
-      <sr-album [album]="album" />
-      }
+      <div class="albums">
+        @for (album of albumsResource.value(); track album.name) {
+          <sr-album [album]="album" />
+        }
+      </div>
     </div>
-  </div>
-</section>
-} @if (state.playlistWidgetEnabled()) {
-<sr-playlist-widget
-  [playlists]="playlistsStore.entities()"
-  (newPlaylist)="addToNewPlaylist($event)"
-  (existingPlaylist)="addToExistingPlaylist($event)"
-  (close)="closePlaylistWidget()"
-/>
+  </section>
+}
+
+@if (state.playlistWidgetEnabled()) {
+  <sr-playlist-widget
+    [playlists]="playlistsStore.entities()"
+    (newPlaylist)="addToNewPlaylist($event)"
+    (existingPlaylist)="addToExistingPlaylist($event)"
+    (close)="closePlaylistWidget()"
+  />
 }

@@ -6,9 +6,9 @@
   <nav class="topbar__nav">
     <ul>
       @for (item of navItems(); track $index) {
-      <li>
-        <a [routerLink]="item.routerlink" routerLinkActive="active">{{ item.label }}</a>
-      </li>
+        <li>
+          <a [routerLink]="item.routerlink" routerLinkActive="active">{{ item.label }}</a>
+        </li>
       }
     </ul>
   </nav>

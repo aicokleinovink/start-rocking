@@ -16,13 +16,13 @@
     <h3>Alle beschikbare playlists</h3>
 
     @if (playlistsStore.entities().length) {
-    <sr-list>
-      @for (playlist of playlistsStore.entities(); track playlist.id) {
-      <sr-list-item [label]="playlist.name" [routerLink]="['/playlists', playlist.id]" />
-      }
-    </sr-list>
+      <sr-list>
+        @for (playlist of playlistsStore.entities(); track playlist.id) {
+          <sr-list-item [label]="playlist.name" [routerLink]="['/playlists', playlist.id]" />
+        }
+      </sr-list>
     } @else {
-    <sr-alert message="Geen playlists gevonden" severity="info" />
+      <sr-alert message="Geen playlists gevonden" severity="info" />
     }
   </div>
 </section>

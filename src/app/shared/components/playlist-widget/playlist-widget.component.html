@@ -4,15 +4,15 @@
   <sr-playlist-form (playlistSubmit)="newPlaylist.emit($event)" />
 
   @if (playlists().length) {
-  <h3>Of kies een bestaande playlist</h3>
+    <h3>Of kies een bestaande playlist</h3>
 
-  <div class="playlist-widget__playlists">
-    <sr-list>
-      @for (playlist of playlists(); track playlist.id) {
-      <sr-list-item iconType="add" [label]="playlist.name" (select)="existingPlaylist.emit(playlist)" />
-      }
-    </sr-list>
-  </div>
+    <div class="playlist-widget__playlists">
+      <sr-list>
+        @for (playlist of playlists(); track playlist.id) {
+          <sr-list-item iconType="add" [label]="playlist.name" (select)="existingPlaylist.emit(playlist)" />
+        }
+      </sr-list>
+    </div>
   }
 
   <div class="playlist-widget__actions">

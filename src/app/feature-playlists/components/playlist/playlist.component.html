@@ -11,22 +11,23 @@
 <section class="page-content">
   <div class="container">
     @if (playlist(); as playlist) {
-    <h3>Alle nummers uit je playlist</h3>
+      <h3>Alle nummers uit je playlist</h3>
 
-    @if (playlist.songs.length) {
-    <sr-list>
-      @for (song of playlist.songs; track song.id) {
-      <sr-list-item
-        iconType="delete"
-        [label]="song.name + ' - ' + song.artist"
-        (select)="deleteFromPlaylist(playlist, song)"
-      />
-      }
-    </sr-list>
+      @if (playlist.songs.length) {
+        <sr-list>
+        @for (song of playlist.songs; track song.id) {
+          <sr-list-item
+            iconType="delete"
+            [label]="song.name + ' - ' + song.artist"
+            (select)="deleteFromPlaylist(playlist, song)"
+          />
+        }
+      </sr-list>
     } @else {
-    <sr-alert message="Deze playlist heeft nog geen nummers" severity="info" />
-    } } @else {
+      <sr-alert message="Deze playlist heeft nog geen nummers" severity="info" />
+    } 
+  } @else {
     <sr-alert message="Deze playlist bestaat niet" severity="info" />
-    }
+  }
   </div>
 </section>
