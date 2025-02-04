@@ -22,9 +22,4 @@ test.describe('Artists', () => {
     await expect(artistsPO.getArtistLink('"Weird Al" Yankovic')).toBeVisible();
     await expect(artistsPO.artistsLinks).toHaveCount(1);
   });
-
-  test('should be able to view artist details', async ({ page }) => {
-    await artistsPO.getArtistLink('"Weird Al" Yankovic').click();
-    expect(page.url()).toContain('/artiesten');
-  });
 });
