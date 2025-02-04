@@ -4,7 +4,7 @@ import { tapResponse } from '@ngrx/operators';
 import { patchState, signalStore, withHooks, withMethods } from '@ngrx/signals';
 import { addEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { pipe, switchMap } from 'rxjs';
+import { map, pipe, switchMap } from 'rxjs';
 import { apiBaseUrl } from '../constants';
 import { Playlist, Song } from '../models';
 
@@ -26,10 +26,11 @@ export const PlaylistsStore = signalStore(
       )
     ),
 
-    create: rxMethod<{ name: string; song: Song }>(
+    create: rxMethod<{ name: string; song?: Song }>(
       pipe(
         switchMap(({ name, song }) => {
-          return http.post<Playlist>(`${apiBaseUrl}/playlists`, { name, songs: [song] }).pipe(
+          const songs: Song[] = song ? [song] : [];
+          return http.post<Playlist>(`${apiBaseUrl}/playlists`, { name, songs }).pipe(
             tapResponse({
               next: (playlist) => patchState(state, addEntity(playlist)),
               error: (error) => console.error(error),

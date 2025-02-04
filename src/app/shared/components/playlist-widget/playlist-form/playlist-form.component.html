@@ -1,0 +1,4 @@
+<form class="playlist-form" [formGroup]="playlistForm" (ngSubmit)="onSubmit()">
+  <sr-input class="input" placeholder="Nieuwe playlist" (valueChange)="playlistForm.controls.name.setValue($event)" />
+  <sr-button label="Opslaan" color="primary" [disabled]="playlistForm.invalid" />
+</form>

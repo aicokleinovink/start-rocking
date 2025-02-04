@@ -10,6 +10,9 @@
 
 <section class="page-content">
   <div class="container">
+    <h3>Maak een nieuwe playlist aan</h3>
+    <sr-playlist-form (playlistSubmit)="createPlaylist($event)" />
+
     <h3>Alle beschikbare playlists</h3>
 
     @if (playlistsStore.entities().length) {

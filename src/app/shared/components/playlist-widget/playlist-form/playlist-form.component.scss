@@ -1,0 +1,8 @@
+.playlist-form {
+  display: flex;
+  gap: var(--s2);
+
+  .input {
+    flex-grow: 1;
+  }
+}

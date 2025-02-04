@@ -1,10 +1,7 @@
 <div class="playlist-widget">
   <h3>Voeg toe aan een nieuwe playlist</h3>
 
-  <form class="playlist-widget__form" [formGroup]="playlistForm" (ngSubmit)="onNewPlaylistSubmit()">
-    <sr-input class="input" placeholder="Nieuwe playlist" (valueChange)="playlistForm.controls.name.setValue($event)" />
-    <sr-button label="Opslaan" color="primary" [disabled]="playlistForm.invalid" />
-  </form>
+  <sr-playlist-form (playlistSubmit)="newPlaylist.emit($event)" />
 
   @if (playlists().length) {
   <h3>Of kies een bestaande playlist</h3>
@@ -12,13 +9,13 @@
   <div class="playlist-widget__playlists">
     <sr-list>
       @for (playlist of playlists(); track playlist.id) {
-      <sr-list-item iconType="add" [label]="playlist.name" (select)="onExistingPlaylistSelect(playlist)" />
+      <sr-list-item iconType="add" [label]="playlist.name" (select)="existingPlaylist.emit(playlist)" />
       }
     </sr-list>
   </div>
   }
 
   <div class="playlist-widget__actions">
-    <sr-button label="Annuleren" color="secondary" (click)="onCancel()" />
+    <sr-button label="Annuleren" color="secondary" (click)="close.emit()" />
   </div>
 </div>

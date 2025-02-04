@@ -16,15 +16,6 @@
   background-color: var(--color-white);
   border: 1px solid var(--color-light-gray);
 
-  &__form {
-    display: flex;
-    gap: var(--s2);
-
-    .input {
-      flex-grow: 1;
-    }
-  }
-
   &__playlists {
     margin-bottom: var(--s2);
   }
