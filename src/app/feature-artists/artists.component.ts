@@ -1,5 +1,5 @@
 import { Component, computed, inject, resource, signal } from '@angular/core';
-import { ArtistsService } from './services/artists.service';
+import { ArtistsService } from './services/artists/artists.service';
 import { Artist } from '../shared/models';
 import { AlertComponent, InputComponent, ListModule } from '../shared/components';
 

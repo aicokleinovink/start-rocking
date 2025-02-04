@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { apiBaseUrl } from '../../shared/constants';
-import { Song } from '../../shared/models/song';
+import { apiBaseUrl } from '../../../shared/constants';
+import { Song } from '../../../shared/models/song';
 
 @Injectable()
 export class SongsService {

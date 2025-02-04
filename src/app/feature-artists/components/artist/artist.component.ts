@@ -4,7 +4,7 @@ import { AlbumComponent, AlertComponent, ListModule, PlaylistWidgetComponent } f
 import { Playlist, Song } from '../../../shared/models';
 import { SpotifyService } from '../../../shared/services';
 import { PlaylistsStore } from '../../../shared/store';
-import { SongsService } from '../../services/songs.service';
+import { SongsService } from '../../services/songs/songs.service';
 
 interface ComponentState {
   playlistWidgetEnabled: boolean;
